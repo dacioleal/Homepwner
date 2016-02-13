@@ -15,14 +15,12 @@ class ItemsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for (index, item) in itemStore.allItems.enumerate() {
-            
-            print("Item \(index) name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
-        }
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
 
     // MARK: - Table view data source
@@ -33,10 +31,11 @@ class ItemsViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
         let item = itemStore.allItems[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        cell.nameLabel.text = item.name
+        cell.serialNumberLabel.text = item.serialNumber
+        cell.valueLabel.text = "$\(item.valueInDollars)"
         return cell
     }
     
@@ -89,11 +88,6 @@ class ItemsViewController: UITableViewController {
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
-        for (index, item) in itemStore.allItems.enumerate() {
-            
-            print("Item \(index) name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
-        }
-        
     }
     
     @IBAction func toggleEditingMode(sender: AnyObject) {

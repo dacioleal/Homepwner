@@ -14,6 +14,7 @@
 		F31CAF791C6F404400A87FC5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31CAF781C6F404400A87FC5 /* ItemsViewController.swift */; };
 		F31CAF7B1C6F427300A87FC5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31CAF7A1C6F427300A87FC5 /* Item.swift */; };
 		F31CAF7D1C6F4A5D00A87FC5 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31CAF7C1C6F4A5D00A87FC5 /* ItemStore.swift */; };
+		F37F77C21C6FB0E400B34B1C /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37F77C11C6FB0E400B34B1C /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F31CAF781C6F404400A87FC5 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		F31CAF7A1C6F427300A87FC5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F31CAF7C1C6F4A5D00A87FC5 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		F37F77C11C6FB0E400B34B1C /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +62,9 @@
 			children = (
 				F31CAF661C6F3E8B00A87FC5 /* AppDelegate.swift */,
 				F31CAF781C6F404400A87FC5 /* ItemsViewController.swift */,
-				F31CAF7A1C6F427300A87FC5 /* Item.swift */,
+				F37F77C11C6FB0E400B34B1C /* ItemCell.swift */,
 				F31CAF7C1C6F4A5D00A87FC5 /* ItemStore.swift */,
+				F31CAF7A1C6F427300A87FC5 /* Item.swift */,
 				F31CAF6A1C6F3E8B00A87FC5 /* Main.storyboard */,
 				F31CAF6D1C6F3E8B00A87FC5 /* Assets.xcassets */,
 				F31CAF6F1C6F3E8B00A87FC5 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				F31CAF7B1C6F427300A87FC5 /* Item.swift in Sources */,
 				F31CAF7D1C6F4A5D00A87FC5 /* ItemStore.swift in Sources */,
 				F31CAF671C6F3E8B00A87FC5 /* AppDelegate.swift in Sources */,
+				F37F77C21C6FB0E400B34B1C /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +296,7 @@
 				F31CAF771C6F3E8B00A87FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
