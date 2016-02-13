@@ -10,13 +10,16 @@ import UIKit
 
 
 class ItemsViewController: UITableViewController {
+    
+    var itemStore: ItemStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let item = Item(random: true)
-        print("Item name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
-        
+        for (index, item) in itemStore.allItems.enumerate() {
+            
+            print("Item \(index) name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
+        }
         
     }
 
