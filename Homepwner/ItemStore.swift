@@ -16,6 +16,10 @@ class ItemStore {
         
         let newItem = Item(random: true)
         allItems.append(newItem)
+        if let index = allItems.indexOf(newItem) {
+            moveItemAtIndex(index, toIndex: 0)
+        }
+        
         return newItem
     }
     
@@ -34,5 +38,10 @@ class ItemStore {
         if let index = allItems.indexOf(item) {
             allItems.removeAtIndex(index)
         }
+    }
+    
+    init() {
+        let permItem = Item(name: "No more items!", serialNumber: nil, valueInDollars: 0)
+        allItems.append(permItem)
     }
 }

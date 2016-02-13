@@ -58,8 +58,30 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+        if destinationIndexPath.row != itemStore.allItems.count-1 {
+            itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+        }
+        tableView.reloadData()
     }
+    
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+          return "Remove"
+    }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row == itemStore.allItems.count-1 {
+            return false
+        }
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row == itemStore.allItems.count-1 {
+            return false
+        }
+        return true
+    }
+    
     
     @IBAction func addNewItem(sender: AnyObject) {
         let newItem = itemStore.createItem()
@@ -67,6 +89,11 @@ class ItemsViewController: UITableViewController {
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
+        for (index, item) in itemStore.allItems.enumerate() {
+            
+            print("Item \(index) name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
+        }
+        
     }
     
     @IBAction func toggleEditingMode(sender: AnyObject) {
