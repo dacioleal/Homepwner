@@ -14,36 +14,37 @@ class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         for (index, item) in itemStore.allItems.enumerate() {
             
             print("Item \(index) name:\(item.name) serialNumber:\(item.serialNumber) value:\(item.valueInDollars)")
         }
         
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return itemStore.allItems.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let item = itemStore.allItems[indexPath.row]
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        
         return cell
     }
-    */
+   
 
     /*
     // Override to support conditional editing of the table view.
